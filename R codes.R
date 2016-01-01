@@ -319,32 +319,6 @@ plot.forecast(HPI_MW_SD_forecast)
 
 
 
-
-ccf(HPI_SD,CCI_SD,48)
-ccfvalues_2 <-ccf(HPI_SD,CCI_SD)
-ccfvalues_2
-ccf(HPI,CCI)
-ccfvalues <-ccf(CCI,HPI)
-ccfvalues
-ccfvalues_2 <-ccf(CCI_SD_Diff1, HPI_SD_Diff1)
-ccfvalues_2
-ccfvalues_3 <-ccf(CCI_SD_Diff2, HPI_SD_Diff2)
-ccfvalues_3
-
-alldata=ts.intersect(HPI_SD_Diff1,HPI_SD_Lag1=lag(HPI_SD_Diff1,-1), HPI_SD_Lag2=lag(HPI_SD_Diff1,-2), HPI_SD_Lag3=lag(HPI_SD_Diff1,-3),CCI_SD_Lead1 = lag(CCI_SD_Diff1,1),CCI_SD_Lead2 = lag(CCI_SD_Diff1,2),CCI_SD_Lead3 = lag(CCI_SD_Diff1,3),CCI_SD_Lead4 = lag(CCI_SD_Diff1,4),CCI_SD_Lead5 = lag(CCI_SD_Diff1,5),CCI_SD_Lead6 = lag(CCI_SD_Diff1,6),
-                     CCI_SD_Lag1 = lag(CCI_SD_Diff1,-1), CCI_SD_Lag2=lag(CCI_SD_Diff1,-2),CCI_SD_Lag3=lag(CCI_SD_Diff1,-3),CCI_SD_Lag4=lag(CCI_SD_Diff1,-4),CCI_SD_Lag5=lag(CCI_SD_Diff1,-5),CCI_SD_Lag6=lag(CCI_SD_Diff1,-6))
-lm_lag <- lm(HPI_SD_Diff1 ~ HPI_SD_Lag1+ HPI_SD_Lag2+HPI_SD_Lag3+CCI_SD_Lead1+CCI_SD_Lead2+CCI_SD_Lead3+CCI_SD_Lead4+CCI_SD_Lead5+CCI_SD_Lead6+CCI_SD_Lag1 +CCI_SD_Lag2+CCI_SD_Lag3+CCI_SD_Lag4+CCI_SD_Lag5+CCI_SD_Lag6, data=alldata)
-summary(lm_lag)
-acf(residuals(lm_lag))
-pacf(residuals(lm_lag))
-
-
-#Regional HPI analysis
-
-
-
-
-
 dd<-mtcars[c(HPI_SD,CCI_SD,FCFI_SD,HouseSt_SD)]
 dd.r<-abs(cor(dd))
 dd.col<-dmat.color(dd.r)
